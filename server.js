@@ -1,6 +1,6 @@
-export function sayHello() {
-  return "Hello";
-}
+/*
+* total orders 
+*/
 
 export function processOrder(order) {
   if (!order) {
