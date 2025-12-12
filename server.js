@@ -3,7 +3,7 @@ export function processOrder(order) {
     throw new Error("Missing order");
   }
 
-  if (!order.price) {
+  if (order.price && order.price > 0) {
     throw new Error("Missing price");
   }
 
