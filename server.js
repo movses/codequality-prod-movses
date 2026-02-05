@@ -1,8 +1,11 @@
 /*
-*  This code is calculating total price
 */
 
-export function processOrder(order) {
+export function process(order) {
+  return total;
+}
+
+export function processOrder2(order) {
   const total = order.price * order.quantity;
   return total;
 }
