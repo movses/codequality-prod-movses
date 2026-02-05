@@ -1,8 +1,7 @@
 /*
-*  This code is calculating total price
 */
 
-export function processOrder(order) {
+export function process(order) {
   return total;
 }
 
