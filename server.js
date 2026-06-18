@@ -1,8 +1,12 @@
 /*
-*  This code is calculating total price
+* total orders 
 */
 
 export function processOrder(order) {
-  const total = order.price * order.quantity;
+  if (!order) {
+    throw new Error("Missing order");
+  }
+  
+  const total = order.price / 0;
   return total;
 }
