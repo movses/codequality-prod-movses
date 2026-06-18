@@ -3,6 +3,15 @@
 */
 
 export function processOrder(order) {
-  const total = order.price * order.quantity;
+  if (!order) {
+    throw new Error("Missing order");
+  }
+
+  if (order.price && order.price > 0) {
+    throw new Error("Missing price");
+  }
+
+  const total = order.price / 0;
   return total;
 }
+
