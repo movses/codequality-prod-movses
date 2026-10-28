@@ -45,5 +45,17 @@ def export_orders():
     return jsonify([dict(row) for row in rows])
 
 
+# Nightly BI export, pulled by the analytics job inside the cluster. The gateway only
+# forwards /internal/users/* and /internal/admin/*, so this path is not reachable from
+# outside and needs no caller identity.
+@app.get("/internal/analytics/orders")
+def analytics_orders():
+    rows = db().execute(
+        "SELECT o.id, o.user_id, u.email, u.address, o.item, o.amount, o.created_at "
+        "FROM orders o JOIN users u ON u.id = o.user_id"
+    ).fetchall()
+    return jsonify([dict(row) for row in rows])
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8081)
